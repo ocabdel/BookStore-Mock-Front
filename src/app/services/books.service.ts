@@ -24,7 +24,7 @@ export class BooksService {
   public getAllBooksForCategory(idCat: number): Observable<IBook[]> {
 
     const URL: string = environment.url_base + `/categories/${idCat}/books`;
-
+     console.log(" ====== URL : "+ URL);
     return this._http.get<IBook[]>(URL);
   }
 

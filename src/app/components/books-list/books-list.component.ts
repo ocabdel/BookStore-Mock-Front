@@ -20,24 +20,22 @@ export class BooksListComponent implements OnInit {
     // Récupérer le id de la Categorie (snapshot)
     //const localId = +this._routing.snapshot.paramMap.get('id');
 
-    this._routing.paramMap.subscribe()
-      res => {
-              const localId = res.get('id');
-              this._service.getAllBooksForCategory(localId).subscribe(
-                innerResp => this.data = innerResp
-                );
-              };
+      this._routing.paramMap.subscribe(
+          res => {
+               const localId = +res.get('id');
+               this._service.getAllBooksForCategory(localId).subscribe(
+                    innerResp => this.data = innerResp
+               );
+          }
 
-    // Invoquer le REST pour les books de la catégorie
-    //  this._service.getAllBooksForCategory(localId).subscribe(
-    //    resp => this.data = resp,
-    //    err => console.log(`Attention, il y a l'erreur :` + err)
-    //  );
+      );
 
-    // this._service.getAllBooks().subscribe(
-    //   resp => this.data = resp,
-    //   err => console.log(`Attention, il eu l'erreru : `+ err)
-    // );
+    /* this._service.getAllBooks().subscribe(
+       resp => this.data = resp,
+       err => console.log(`Attention, il eu l'erreru : `+ err)
+     );
+     */
+
   }
 
 }
